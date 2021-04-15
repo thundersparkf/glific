@@ -61,6 +61,26 @@ defmodule Glific.InvoiceTest do
     }
   }
 
+  @stripe_request_params %{
+    "app" => "GlifMock App",
+    "timestamp" => 1_580_227_766_370,
+    "version" => 2,
+    "type" => "message",
+    "payload" => %{
+      "id" => "ABEGkYaYVSEEAhAL3SLAWwHKeKrt6s3FKB0c",
+      "source" => "919917443994",
+      "payload" => %{
+        "text" => "Hi"
+      },
+      "sender" => %{
+        "phone" => "919917443994",
+        "name" => "Smit",
+        "country_code" => "91",
+        "dial_code" => "8x98xx21x4"
+      }
+    }
+  }
+
   test "create_invoice/1 with valid data", %{organization_id: organization_id} do
     attrs = Map.merge(@valid_attrs, %{organization_id: organization_id})
 
